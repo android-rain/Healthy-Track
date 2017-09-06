@@ -1,0 +1,38 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Healty Track</title>
+    <link rel="stylesheet" href="assets/index.css">
+</head>
+<body>
+    <div id="searchBox">
+        <input type="text" name="search" value="food">
+        <input type="button" name="submit" value="提交">
+    </div>
+    <div id="search-results">
+        <ul id="suggests-food"></ul>
+    </div>
+    <div id="nutrition">
+        <ul id="myfoods"></ul>
+        <p>食谱的总能量为： <span id="total-power"></span></p>
+    </div>
+
+    <script type="text/template" id="result-item-template">
+
+    </script>
+    <script type="text/template" id="myfood-item-template">
+
+    </script>
+
+    <script src="js/lib/jquery.min.js"></script>
+    <script src="js/lib/underscore-min.js"></script>
+    <script src="js/lib/backbone-min.js"></script>
+
+    <!-- Firebase -->
+    <script src="js/lib/firebase.js"></script>
+    <script src="js/lib/backbonefire.min.js"></script>
+
+</body>
+</html>
