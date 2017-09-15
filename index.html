@@ -7,9 +7,12 @@
     <link rel="stylesheet" href="assets/index.css">
 </head>
 <body>
+<header>
+    <h1> Healty Track</h1>
+</header>
     <div id="searchBox">
-        <input type="text" name="search" value="food">
-        <input type="button" name="submit" value="提交">
+        <input id="box" type="text" name="search" placeholder="food name">
+        <input id="submit" type="button" name="submit" value="提交">
     </div>
     <div id="search-results">
         <ul id="suggests-food"></ul>
@@ -19,8 +22,11 @@
         <p>食谱的总能量为： <span id="total-power"></span></p>
     </div>
 
-    <script type="text/template" id="result-item-template">
-
+    <script type="text/template" id="instant-template">
+        <div>
+            <img id="photo" src=<%=image%> alt=<%=name%>>
+            <p id="food-name"><%=name%></p>
+        </div>
     </script>
     <script type="text/template" id="myfood-item-template">
 
@@ -33,6 +39,19 @@
     <!-- Firebase -->
     <script src="js/lib/firebase.js"></script>
     <script src="js/lib/backbonefire.min.js"></script>
+
+    <!-- APP -->
+    <script src="js/models/food.js"></script>
+    <script src="js/models/instant.js"></script>
+    <script src="js/collections/foods.js"></script>
+    <script src="js/collections/instants.js"></script>
+    <script src="js/views/foods.js"></script>
+    <script src="js/views/app.js"></script>
+    <script src="js/views/instants.js"></script>
+    <script src="js/routers/router.js"></script>
+
+
+    <script src="js/app.js"></script>
 
 </body>
 </html>

@@ -40,13 +40,28 @@ body {
 	font-smoothing: antialiased;
 	font-weight: 300;
 }
+
+/**/
+header {
+	margin-top: 15px;
+}
 /**/
 #searchBox {
 
 background-color: #CCFFCC;
 }
+
+#searchBox #box {
+	width: 90%;
+}
+
+#searchBox #submit {
+	float: right;
+	font-weight: bold;
+}
 /**/
 #search-results {
+	height: 10em;
 background-color: #99CCCC;
 }
 #suggests-food {
@@ -55,13 +70,14 @@ background-color: #99CCCC;
 
 /**/
 #nutrition {
+	height: 10em;
 background-color: #FFFFCC;
 }
 #myfoods {
 
 }
- #nutrition #total-power {
-
+ #nutrition p {
+	margin-bottom: 9em;
  }
 
  /**/
