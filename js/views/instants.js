@@ -56,7 +56,7 @@ app.InstantView = Backbone.View.extend({
                 console.log(result);
             },
             error: function() {
-                console.log("Get info failed");
+                alert("获取食物营养成分失败");
             }
         });
     }

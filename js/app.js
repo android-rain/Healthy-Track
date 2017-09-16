@@ -64,7 +64,7 @@ $(function() {
                 });
             },
             error: function() {
-                console.log("Get info failed");
+                alert("获取食物名称失败。");
             }
         });
     });
