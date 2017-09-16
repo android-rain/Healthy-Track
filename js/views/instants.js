@@ -26,6 +26,7 @@ app.InstantView = Backbone.View.extend({
     },
 
     getNutrition: function() {
+        var self = this;
         var content = this.model.get("name");  // get的参数需要用引号括起来
         $.ajax({
             url: 'https://trackapi.nutritionix.com/v2/natural/nutrients',
@@ -54,6 +55,7 @@ app.InstantView = Backbone.View.extend({
 
             success: function(result) {
                 console.log(result);
+                self.clear();
             },
             error: function() {
                 alert("获取食物营养成分失败");
