@@ -1,4 +1,5 @@
 <html>
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -6,10 +7,11 @@
     <title>Healty Track</title>
     <link rel="stylesheet" href="assets/index.css">
 </head>
+
 <body>
-<header>
-    <h1> Healty Track</h1>
-</header>
+    <header>
+        <h1> Healty Track</h1>
+    </header>
     <div id="searchBox">
         <input id="box" type="text" name="search" placeholder="food name">
         <input id="submit" type="button" name="submit" value="提交">
@@ -21,25 +23,128 @@
         <ul id="myfoods"></ul>
         <p>食谱的总能量为： <span id="total-power"></span></p>
     </div>
-
     <script type="text/template" id="instant-template">
         <div>
-            <img id="photo" src=<%=image%> alt=<%=name%>>
-            <p id="food-name"><%=name%></p>
+            <img id="photo" src=<%=image%> alt=
+            <%=name%>>
+                <p id="food-name">
+                    <%=name%>
+                </p>
         </div>
     </script>
     <script type="text/template" id="myfood-item-template">
-
     </script>
-
+    <script type="text/template" id="nutrition-template">
+        <div id="nutrition-label" nutrition-label="vm.labelData" nutrition-label-options="{userFunctionOnQuantityChange: vm.onQuantityChange}" class="ng-isolate-scope">
+            <div>
+                <div class="label-container">
+                    <div id="label-1nxzwgfo5qb">
+                        <div itemscope="" itemtype="http://schema.org/NutritionInformation" class="nutritionLabel" style=" width: 280px;">
+                            <div class="title">营养成分</div>
+                            <div class="name "><%=foodName%></div>
+                            <div class="serving">
+                                <div class="cf">
+                                    <div class="servingSizeText fl">摄入量大小:</div>
+                                    <div class="rel servingSizeField fl">
+                                        <div class="setter">
+                                            <a href="Increase the quantity" class="unitQuantityUp" rel="nofollow"></a>
+                                            <a href="Decrease the quantity" class="unitQuantityDown" rel="nofollow"></a>
+                                        </div>
+                                        <!-- closing class="setter" -->
+                                        <input type="text" value="1" class="unitQuantityBox">
+                                        <input type="hidden" value="1" id="nixLabelBeforeQuantity">
+                                    </div>
+                                    <!-- closing class="servingSizeField" -->
+                                    <div class="servingUnit fl unitHasTextbox"><%=unit%></div>
+                                    <div class="servingWeightGrams fl gramsHasTextbox">(<span itemprop="servingSize"><%=weight%>g</span>)
+                                    </div>
+                                </div>
+                                <!-- closing class="cf" -->
+                            </div>
+                            <!-- closing class="serving" -->
+                            <div class="bar1"></div>
+                            <div class="line m"><strong>每份摄入量</strong></div>
+                            <div class="line">
+                                <div class="fr">从脂肪获取 <%=caloriesFat%></div>
+                                <div class=""><strong>卡路里</strong> <span itemprop="calories"><%=calories%></span></div>
+                            </div>
+                            <div class="bar2"></div>
+                            <div class="line ar"><strong>% Daily Value<sup>*</sup></strong></div>
+                            <div class="line">
+                                <div class="dv"><strong><%=fatPercent%></strong>%</div>
+                                <strong>脂肪总量</strong> <span itemprop="fatContent"><%=fat%>g
+    </span></div>
+                            <div class="line indent">
+                                <div class="dv"><strong><%=saturatedFatPercent%></strong>%</div>
+                                饱和脂肪 <span itemprop="saturatedFatContent"><%=saturatedFat%>g
+    </span></div>
+                            <div class="line indent"> 反式脂肪酸 <span itemprop="transFatContent"><%=transFat%>g
+    </span></div>
+                            <div class="line indent">多元不饱和脂肪酸 <%=polyunsaturatedFat%>g</div>
+                            <div class="line indent">单元不饱和脂肪酸 Fat <%=monounsaturatedFat%>g</div>
+                            <div class="line">
+                                <div class="dv"><strong><%=cholesterolPercent%></strong>%</div>
+                                <strong>胆固醇</strong> <span itemprop="cholesterolContent"><%=cholesterol%>mg
+    </span></div>
+                            <div class="line">
+                                <div class="dv"><strong><%=sodiumPercent%></strong>%</div>
+                                <strong>钠</strong> <span itemprop="sodiumContent"><%=sodium%>mg
+    </span></div>
+                            <div class="line">
+                                <div class="dv"><strong><%=potassiumPercent%></strong>%</div>
+                                <strong>钾</strong> <span itemprop="potassiumContent"><%=potassium%>mg
+    </span></div>
+                            <div class="line">
+                                <div class="dv"><strong><%=carbohydratesPercent%></strong>%</div>
+                                <strong>糖类总量</strong> <span itemprop="carbohydrateContent"><%=carbohydrates%>g
+    </span></div>
+                            <div class="line indent">
+                                <div class="dv"><strong><%=fiberPercent%></strong>%</div>
+                                膳食纤维 <span itemprop="fiberContent"><%=fiber%>g
+    </span></div>
+                            <div class="line indent">糖 <span itemprop="sugarContent"><%=sugar%>g</span></div>
+                            <div class="line"><strong>蛋白质</strong> <span itemprop="proteinContent"><%=protein%>g</span></div>
+                            <div class="bar1"></div>
+                            <div class="line vitaminA">
+                                <div class="dv">
+                                    <%=vitaminA%>%</div>
+                                维生素A
+                            </div>
+                            <div class="line vitaminC">
+                                <div class="dv">
+                                    <%=vitaminC%>%</div>
+                                维生素C
+                            </div>
+                            <div class="line calcium">
+                                <div class="dv">
+                                    <%=calcium%>%</div>
+                                钙
+                            </div>
+                            <div class="line iron">
+                                <div class="dv">
+                                    <%=iron%>%</div>
+                                铁
+                            </div>
+                            <div class="dvCalorieDiet line">
+                                <div class="calorieNote">
+                                    <span class="star">*</span> Percent Daily Values are based on a 2000 calorie diet.
+                                </div>
+                                <!-- closing class="calorieNote" -->
+                            </div>
+                            <!-- closing class="dvCalorieDiet line" -->
+                        </div>
+                        <!-- closing class="nutritionLabel" -->
+                </div>
+                <!-- ngIf: !settings.hideModeSwitcher -->
+            </div>
+        </div>
+    </script>
     <script src="js/lib/jquery.min.js"></script>
     <script src="js/lib/underscore-min.js"></script>
     <script src="js/lib/backbone-min.js"></script>
-
     <!-- Firebase -->
     <script src="js/lib/firebase.js"></script>
     <script src="js/lib/backbonefire.min.js"></script>
-
     <!-- APP -->
     <script src="js/models/food.js"></script>
     <script src="js/models/instant.js"></script>
@@ -49,9 +154,7 @@
     <script src="js/views/app.js"></script>
     <script src="js/views/instants.js"></script>
     <script src="js/routers/router.js"></script>
-
-
     <script src="js/app.js"></script>
-
 </body>
+
 </html>

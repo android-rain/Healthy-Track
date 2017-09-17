@@ -45,7 +45,7 @@ app.InstantView = Backbone.View.extend({
                 // line_delimited: false,
                 // use_raw_foods: false,
                 // include_subrecipe: false,
-                // // timezone: "Asia/Shanghai",
+                timezone: "Asia/Shanghai",
                 // // consumed_at: null,
                 // // lat: null,
                 // // lng: null,
@@ -54,13 +54,54 @@ app.InstantView = Backbone.View.extend({
             }),
 
             success: function(result) {
-                console.log(result);
+                self.parseJSON(result);
                 self.clear();
             },
             error: function() {
                 alert("获取食物营养成分失败");
             }
         });
+    },
+
+    parseJSON: function(result) {
+        var data = result.foods[0];
+        var nutrionFacts = {};
+
+        nutrionFacts.foodName = data.food_name;
+        nutrionFacts.qty = data.serving_qty;
+        nutrionFacts.unit = data.serving_unit;
+        nutrionFacts.weight = data.serving_weight_grams;
+        nutrionFacts.calories = data.nf_calories;
+        nutrionFacts.fat = data.nf_total_fat;
+        nutrionFacts.saturated = data.nf_saturated_fat;
+        nutrionFacts.polyunsaturated = data.full_nutrients.find(function(nutrients){
+            return nutrients.attr_id === 646;
+        }).value;
+        nutrionFacts.monounsaturated = data.full_nutrients.find(function(nutrients){
+            return nutrients.attr_id === 645;
+        }).value;
+        nutrionFacts.cholesterol = data.nf_cholesterol;
+        nutrionFacts.sodium = data.nf_sodium;
+        nutrionFacts.potassium = data.nf_potassium;
+        nutrionFacts.carbohydrates = data.nf_total_carbohydrate;
+        nutrionFacts.fiber = data.nf_dietary_fiber;
+        nutrionFacts.sugar = data.nf_sugars;
+        nutrionFacts.protein = data.nf_protein;
+        nutrionFacts.VA = data.full_nutrients.find(function(nutrients){
+            return nutrients.attr_id === 318;
+        }).value;
+        nutrionFacts.VC = data.full_nutrients.find(function(nutrients){
+            return nutrients.attr_id === 401;
+        }).value;
+        nutrionFacts.calcium = data.full_nutrients.find(function(nutrients){
+            return nutrients.attr_id === 301;
+        }).value;
+        nutrionFacts.iron = data.full_nutrients.find(function(nutrients){
+            return nutrients.attr_id === 303;
+        }).value;
+
+
+        console.log(nutrionFacts);
     }
 });
 
