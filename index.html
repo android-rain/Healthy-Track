@@ -16,9 +16,13 @@
         <input id="box" type="text" name="search" placeholder="food name">
         <input id="submit" type="button" name="submit" value="提交">
     </div>
+
+    <!-- nutritionix api 的搜索结果列表 -->
     <div id="search-results">
         <ul id="suggests-food"></ul>
     </div>
+
+    <!-- 用户选择食物营养列表 -->
     <div id="nutrition">
         <ul id="myfoods"></ul>
         <p>食谱的总能量为： <span id="total-power"></span></p>
@@ -32,8 +36,7 @@
                 </p>
         </div>
     </script>
-    <script type="text/template" id="myfood-item-template">
-    </script>
+
     <script type="text/template" id="nutrition-template">
         <div id="nutrition-label" nutrition-label="vm.labelData" nutrition-label-options="{userFunctionOnQuantityChange: vm.onQuantityChange}" class="ng-isolate-scope">
             <div>
@@ -65,41 +68,41 @@
                             <div class="bar1"></div>
                             <div class="line m"><strong>每份摄入量</strong></div>
                             <div class="line">
-                                <div class="fr">从脂肪获取 <%=caloriesFat%></div>
+                                <div class="fr">从脂肪获取 caloriesFat%></div>
                                 <div class=""><strong>卡路里</strong> <span itemprop="calories"><%=calories%></span></div>
                             </div>
                             <div class="bar2"></div>
                             <div class="line ar"><strong>% Daily Value<sup>*</sup></strong></div>
                             <div class="line">
-                                <div class="dv"><strong><%=fatPercent%></strong>%</div>
+                                <div class="dv"><strong>=fatPercent%></strong>%</div>
                                 <strong>脂肪总量</strong> <span itemprop="fatContent"><%=fat%>g
     </span></div>
                             <div class="line indent">
-                                <div class="dv"><strong><%=saturatedFatPercent%></strong>%</div>
-                                饱和脂肪 <span itemprop="saturatedFatContent"><%=saturatedFat%>g
+                                <div class="dv"><strong>=saturatedFatPercent%></strong>%</div>
+                                饱和脂肪 <span itemprop="saturatedFatContent"><%=saturated%>g
     </span></div>
-                            <div class="line indent"> 反式脂肪酸 <span itemprop="transFatContent"><%=transFat%>g
+                            <div class="line indent"> 反式脂肪酸 <span itemprop="transFatContent">=transFat%>g
     </span></div>
-                            <div class="line indent">多元不饱和脂肪酸 <%=polyunsaturatedFat%>g</div>
-                            <div class="line indent">单元不饱和脂肪酸 Fat <%=monounsaturatedFat%>g</div>
+                            <div class="line indent">多元不饱和脂肪酸 <%=polyunsaturated%>g</div>
+                            <div class="line indent">单元不饱和脂肪酸 Fat <%=monounsaturated%>g</div>
                             <div class="line">
-                                <div class="dv"><strong><%=cholesterolPercent%></strong>%</div>
+                                <div class="dv"><strong>=cholesterolPercent%></strong>%</div>
                                 <strong>胆固醇</strong> <span itemprop="cholesterolContent"><%=cholesterol%>mg
     </span></div>
                             <div class="line">
-                                <div class="dv"><strong><%=sodiumPercent%></strong>%</div>
+                                <div class="dv"><strong>=sodiumPercent%></strong>%</div>
                                 <strong>钠</strong> <span itemprop="sodiumContent"><%=sodium%>mg
     </span></div>
                             <div class="line">
-                                <div class="dv"><strong><%=potassiumPercent%></strong>%</div>
+                                <div class="dv"><strong>=potassiumPercent%></strong>%</div>
                                 <strong>钾</strong> <span itemprop="potassiumContent"><%=potassium%>mg
     </span></div>
                             <div class="line">
-                                <div class="dv"><strong><%=carbohydratesPercent%></strong>%</div>
+                                <div class="dv"><strong>=carbohydratesPercent%></strong>%</div>
                                 <strong>糖类总量</strong> <span itemprop="carbohydrateContent"><%=carbohydrates%>g
     </span></div>
                             <div class="line indent">
-                                <div class="dv"><strong><%=fiberPercent%></strong>%</div>
+                                <div class="dv"><strong>=fiberPercent%></strong>%</div>
                                 膳食纤维 <span itemprop="fiberContent"><%=fiber%>g
     </span></div>
                             <div class="line indent">糖 <span itemprop="sugarContent"><%=sugar%>g</span></div>
@@ -107,12 +110,12 @@
                             <div class="bar1"></div>
                             <div class="line vitaminA">
                                 <div class="dv">
-                                    <%=vitaminA%>%</div>
+                                    <%=VA%>%</div>
                                 维生素A
                             </div>
                             <div class="line vitaminC">
                                 <div class="dv">
-                                    <%=vitaminC%>%</div>
+                                    <%=VC%>%</div>
                                 维生素C
                             </div>
                             <div class="line calcium">

@@ -6,7 +6,7 @@ $(function() {
     console.log("App beginning");
 
     // test firebase
-    // app.foodList = new app.FoodList();
+    app.foodList = new app.FoodList();
     // attrs = {
     //   name: 'apple', calories: 400
     //   // new app.Food({name: 'milk', calories: 500}),
@@ -24,7 +24,7 @@ $(function() {
 
 
 
-    // new app.AppView();
+    new app.AppView();
     new app.InstantsView();
 
     var search = $('#box');

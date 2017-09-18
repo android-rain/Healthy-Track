@@ -100,8 +100,8 @@ app.InstantView = Backbone.View.extend({
             return nutrients.attr_id === 303;
         }).value;
 
-
-        console.log(nutrionFacts);
+        // 创建一个model，存放在collection中，并同步到firebase
+        app.foodList.create(nutrionFacts);
     }
 });
 

@@ -1,7 +1,7 @@
 var app = app || {};
 
 app.AppView = Backbone.View.extend({
-  el: $('#search-results'),
+  el: $('#myfoods'),
 
   events: {
 
@@ -11,10 +11,10 @@ app.AppView = Backbone.View.extend({
     this.listenTo(app.foodList, 'add', this.addOne);
     // this.listenTo(app.foodList, 'remove', this.remove);
 
-    this.list = $('#suggests-food');
+    // this.list = $('#suggests-food');
     app.foodList.each(function(food) {
       var view = new app.FoodView({model: food});
-      this.list.append(view.render().el);
+      this.$el.append(view.render().el);
 
     }, this);
 
@@ -23,7 +23,7 @@ app.AppView = Backbone.View.extend({
 
   addOne: function(model) {
     var view = new app.FoodView({model: model});
-    this.list.append(view.render().el);
+    this.$el.append(view.render().el);
   },
   changed: function() {
       console.log("firebase changed");
