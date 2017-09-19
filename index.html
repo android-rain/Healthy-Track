@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 
 <head>
@@ -5,31 +6,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Healty Track</title>
+    <link rel="stylesheet"
+          href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
     <link rel="stylesheet" href="assets/index.css">
 </head>
 
 <body>
     <header>
-        <h1> Healty Track</h1>
+        <h1 class="mdc-typography--display1"> Healty Track</h1>
     </header>
-    <div id="searchBox">
-        <input id="box" type="text" name="search" placeholder="food name">
-        <input id="submit" type="button" name="submit" value="提交">
-    </div>
+     <form action="#" id="greeting-form">
+
+          <div class="mdc-form-field">
+            <div class="mdc-textfield mdc-textfield--upgraded" data-mdc-auto-init="MDCTextfield">
+              <input id="box" type="text" class="mdc-textfield__input ">
+              <label for="box" class="mdc-textfield__label">
+                搜索你喜爱的食物
+              </label>
+            </div>
+          </div>
+
+
+        <button id="submit" type="submit"
+                class="mdc-button
+                       mdc-button--raised
+                       mdc-button--primary
+                       mdc-ripple-surface"
+                data-mdc-auto-init="MDCRipple">
+          提交
+        </button>
+      </form>
+
 
     <!-- nutritionix api 的搜索结果列表 -->
     <div id="search-results">
-        <ul id="suggests-food"></ul>
+        <ul id="suggests-food" class="mdc-list mdc-list--two-line mdc-list--avatar-list two-line-avatar-text-icon-demo"></ul>
     </div>
 
     <!-- 用户选择食物营养列表 -->
-    <div id="nutrition">
+    <div id="nutrition" class="--mdc-theme-background">
         <ul id="myfoods"></ul>
         <p>食谱的总能量为： <span id="total-power"></span></p>
     </div>
     <script type="text/template" id="instant-template">
-        <div>
-            <img id="photo" src=<%=image%> alt=
+        <div class="mdc-list-item">
+            <img id="photo" class="mdc-list-item__start-detail" src=<%=image%> alt=
             <%=name%>>
                 <p id="food-name">
                     <%=name%>
@@ -38,14 +59,13 @@
     </script>
 
     <script type="text/template" id="nutrition-template">
-        <div id="nutrition-label" nutrition-label="vm.labelData" nutrition-label-options="{userFunctionOnQuantityChange: vm.onQuantityChange}" class="ng-isolate-scope">
-            <div>
-                <div class="label-container">
-                    <div id="label-1nxzwgfo5qb">
-                        <div itemscope="" itemtype="http://schema.org/NutritionInformation" class="nutritionLabel" style=" width: 280px;">
-                            <div class="title">营养成分</div>
-                            <div class="name "><%=foodName%></div>
-                            <div class="serving">
+        <div class="mdc-card demo-card">
+            <section class="mdc-card__primary">
+              <h1 class="mdc-card__title mdc-card__title--large">营养成分</h1>
+              <h2 class="mdc-card__subtitle"><%=foodName%></h2>
+            </section>
+            <section class="mdc-card__supporting-text">
+                <div class="serving">
                                 <div class="cf">
                                     <div class="servingSizeText fl">摄入量大小:</div>
                                     <div class="rel servingSizeField fl">
@@ -135,13 +155,16 @@
                                 <!-- closing class="calorieNote" -->
                             </div>
                             <!-- closing class="dvCalorieDiet line" -->
-                        </div>
-                        <!-- closing class="nutritionLabel" -->
-                </div>
-                <!-- ngIf: !settings.hideModeSwitcher -->
-            </div>
-        </div>
+
+            </section>
+            <section class="mdc-card__actions">
+              <button class="mdc-button mdc-button--compact mdc-card__action">Action 1</button>
+              <button class="mdc-button mdc-button--compact mdc-card__action">Action 2</button>
+            </section>
+          </div>
     </script>
+     <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+    <script>mdc.autoInit();</script>
     <script src="js/lib/jquery.min.js"></script>
     <script src="js/lib/underscore-min.js"></script>
     <script src="js/lib/backbone-min.js"></script>
